@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
+    public GameObject winText;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerRunner runner =
@@ -15,6 +17,7 @@ public class FinishLine : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>();
         body.linearVelocity = Vector2.zero;
 
-        Debug.Log("Level complete!");
+        if (winText != null)
+            winText.SetActive(true);
     }
 }
